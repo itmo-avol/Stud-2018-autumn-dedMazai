@@ -1,0 +1,204 @@
+@keyframes dublicate {
+    0% {
+        box-shadow: 0 0 12px rgba(255,0,0,0.5);
+    }
+    25% {
+        box-shadow: 0 0 16px rgba(255,0,0,0.6);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255,0,0,0.7);
+    }
+    75% {
+        box-shadow: 0 0 24px rgba(255,0,0,0.8);
+    }
+    100% {
+        box-shadow: 0 0 28px rgba(255,0,0,0.9);
+    }
+}
+body{
+    font-family: 'Lobster', cursive;
+    color: #E2231A;
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    font: inherit;
+    color: inherit;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+button:focus, button:active{
+    outline: none;
+}
+button.reset{
+    right: 0;
+    margin: 20px 20px auto auto;
+    position: absolute;
+    width: 85px;
+    height: 80px;
+    border: none;
+    padding:0;
+    z-index:255;
+}
+
+button.reset #red{
+    fill: #04586B;
+    transition: fill .2s;
+}
+
+button.reset:hover #red {
+    fill: #E2231A;
+    transition: fill .2s;
+}
+
+.main-grid{
+    height:100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "player1" "table" "player2";
+}
+.player1{
+    grid-area: player1;
+}
+.player2{
+    grid-area: player2;
+}
+.player{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36px;
+    line-height:150%;
+    position:relative;
+    z-index: 1;
+}
+
+.player::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.player.active::before{
+    opacity:1;
+    background: url("active.svg") no-repeat center center;
+}
+
+.player.winner::before{
+    opacity:1;
+     background: url("winner.svg") no-repeat center center;
+}
+
+
+.table{
+    display: grid;
+    grid-area: table;
+    align-items:center;
+    width:100vw;
+    grid-template-columns: 280px 1fr;
+    grid-template-areas: "deck cards";
+}
+.deck{
+    grid-area: deck;
+    margin:0 20px;
+}
+.cards{
+    grid-area: cards;
+    justify-content: space-around;
+    display: flex;
+    justify-content: flex-start;
+}
+.card{
+    position:relative;
+    height:360px;
+}
+.card button{
+    height: 100%;
+    width:240px;
+    border:none;
+    border-radius:16px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    position: absolute;
+    padding:0;
+}
+.card button:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.deck > .card button{
+    font-size: 56px;
+    background: url("back.svg") no-repeat center center;
+}
+.cards > .card:last-child{
+    flex-shrink:0;
+}
+.cards > .card{
+    flex: 0 1 240px;
+    padding-right:20px;
+}
+.cards > .card button{
+    height:360px;
+}
+.cards > .card button .text{
+    font-size:48px;
+    text-align:left;
+    height: 100%;
+    margin: 10px auto auto 20px;
+}
+.animate {
+    animation-name: dublicate;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+#none{
+    display:none;
+}
+.cards .card1 button{
+    background: url("card1.svg") no-repeat center center;
+    color: #fff;
+}
+.cards .card2 button{
+    background: url("card2.svg") no-repeat center center;
+}
+.cards .card3 button{
+    background: url("card3.svg") no-repeat center center;
+    color: #fff;
+}
+.cards .card4 button{
+    background: url("card4.svg") no-repeat center center;
+    color:#04586B;
+}
+.cards .card5 button{
+    background: url("card5.svg") no-repeat center center;
+}
+.cards .card6 button{
+    background: url("card6.svg") no-repeat center center;
+}
+.cards .card7 button{
+    background: url("card7.svg") no-repeat center center;
+}
+.cards .card8 button{
+    background: url("card8.svg") no-repeat center center;
+}
+.cards .card9 button{
+    background: url("card9.svg") no-repeat center center;
+}
+.cards .card10 button{
+    background: url("card10.svg") no-repeat center center;
+}
+
